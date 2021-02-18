@@ -6,6 +6,6 @@
  - Sichuan Normal University https://acm.sicnu.edu.cn/
  - [Submissions welcome](/onlinejudge/guide/qq_group)
 
-## 赞助我们
+## Support Developer
 
 <img src="https://storage.virusdefender.net/blog/images/utils/wx_pay_new.JPG" style="width: 40%; height: 40%">
