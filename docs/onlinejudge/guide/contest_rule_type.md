@@ -1,18 +1,18 @@
-# 比赛模式
+# Competition mode
 
-2.0版支持两种比赛模式, 可以根据需要进行灵活选择:
+Version 2.0 supports two competition modes, which can be flexibly selected according to needs:
 
-+ ACM 模式
++ ACM mode
 
-    在该模式下,我们严格按照ACM-ICPC的比赛规则来进行，Contest设置项中的`real time rank`即为是否封榜，封榜后将不再刷新排名。
+    In this mode, we strictly follow the ACM-ICPC competition rules. The `real time rank` in the Contest setting is whether to close the list. After the list is closed, the ranking will not be refreshed.
 
-+ OI 模式
++ OI mode
 
-    在OI模式下，选手的提交将根据得分点来计分，多次提交以最后一次提交为准，排名规则为多个题目的总分数。
+    In the OI mode, players' submissions will be scored based on the points scored. For multiple submissions, the last submission shall prevail. The ranking rule is the total score of multiple questions.
 
-    为了照顾OI模式五花八门的规则， 也由于OI模式下没有封榜一说，我们为OI模式下的`real time rank`赋予了特殊的意义:
+    In order to take care of the various rules of the OI mode, and because there is no such thing as a list in the OI mode, we give a special meaning to the `real time rank` in the OI mode:
 
-    当`real time rank`开启时，选手能在提交后立即看到评判结果，并可以查看Rankings， Submissions等信息(类似ACM，只是按得分点计分了)，
-    当`real time rank`关闭时， 比赛参与者在提交后将不能获取结果，直到比赛结束才可以查看。
+    When the `real time rank` is turned on, players can see the results of the judgment immediately after submission, and can view Rankings, Submissions and other information (similar to ACM, but scored by points),
+    When `real time rank` is turned off, contest participants will not be able to get the results after submission, and they will not be able to view the results until the end of the contest.
 
-需要注意的是超级管理员和该比赛的创建者对比赛拥有所有权， 即不受上述任何约束，可以在任何模式下查看测试样例的结果，也可以在封榜时通过`Force Update`来强制刷新榜，且刷新后的榜仅对管理者可见
+It should be noted that the super administrator and the creator of the game have the ownership of the game, that is, they are not subject to any of the above restrictions, and the results of the test samples can be viewed in any mode, and they can also be forced by `Force Update` when the list is closed Refresh the list, and the refreshed list is only visible to managers
