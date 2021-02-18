@@ -1,9 +1,9 @@
-# 使用内容分发网络(CDN)
+# Use Content Delivery Network (CDN)
 
-OJ目前仅支持对 Javascript 和 CSS 使用 CDN 加速，即 API 和动态加载的组件依然会从源主机请求，配置很简单，只需修改 OnlineJudgeDeploy 下的 `docker-compose.yml` 文件，将`STATIC_CDN_HOST`设置为自己的 CDN 域名:
+OJ currently only supports CDN acceleration for Javascript and CSS, that is, APIs and dynamically loaded components will still be requested from the source host. The configuration is very simple. Just modify the `docker-compose.yml` file under OnlineJudgeDeploy and set `STATIC_CDN_HOST` For your own CDN domain name:
 
 ```
- - STATIC_CDN_HOST=cdn.oj.com
+  -STATIC_CDN_HOST=cdn.oj.com
 ```
 
-保存并运行 `docker-compose up -d`即可。
+Save and run `docker-compose up -d`.
