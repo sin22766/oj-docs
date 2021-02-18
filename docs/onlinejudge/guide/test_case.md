@@ -1,15 +1,15 @@
-# 测试用例格式
+# Test case format
 
-对于普通题目，测试用例文件包括`in`和`out`两种拓展名，对于Special Judge就只有`in`一种文件。
+For common problems, the test case file includes two extensions of `in` and `out`, and for Special Judge, there is only one file called `in`.
 
-每个测试用例的文件名须由数字开头，例如有两组测试用例，则对于普通题目测试用例的文件名分别为`1.in, 1.out, 2.in, 2.out`，SPJ的文件名分别为`1.in, 2.in`。其他形式的文件后台均不识别。
+The file name of each test case must start with a number. For example, if there are two sets of test cases, the file names of common test cases are `1.in, 1.out, 2.in, 2.out`, SPJ The file names are `1.in, 2.in`. Other forms of files are not recognized in the background.
 
-压缩时，请将文件都放在压缩包的根目录，而不是包含在某一个文件夹中，比如正确的格式是
+When compressing, please put the files in the root directory of the compressed package, rather than in a folder, for example, the correct format is
 
 ```bash
-➜  testcase pwd
+➜ testcase pwd
 /tmp/testcase
-➜  testcase tree
+➜ testcase tree
 .
 ├── 1.in
 ├── 1.out
@@ -17,43 +17,43 @@
 0 directories, 2 files
 ```
 
-下面是错误的，
+The following is wrong,
 
 ```bash
-➜  testcase pwd
+➜ testcase pwd
 /tmp/testcase
-➜  testcase tree
+➜ testcase tree
 .
 ├── 1
-│   ├── 1.in
-│   └── 1.out
+│ ├── 1.in
+│ └── 1.out
 
 1 directories, 2 files
 ```
 
-然后压缩测试用例到一个zip中
+Then compress the test cases into a zip
 
 ```bash
-➜  testcase zip testcase.zip ./{*.in,*.out}
+➜ testcase zip testcase.zip ./{*.in,*.out}
   adding: 1.in (stored 0%)
   adding: 1.out (stored 0%)
 ```
 
-查看压缩包的内容
+View the contents of the compressed package
 
 ```bash
-➜  testcase unzip -v testcase.zip
-Archive:  testcase.zip
- Length   Method    Size  Ratio   Date   Time   CRC-32    Name
---------  ------  ------- -----   ----   ----   ------    ----
-       0  Stored        0   0%  04-28-16 16:27  00000000  1.in
-       0  Stored        0   0%  04-28-16 16:27  00000000  1.out
---------          -------  ---                            -------
-       0                0   0%                            2 files
+➜ testcase unzip -v testcase.zip
+Archive: testcase.zip
+ Length Method Size Ratio Date Time CRC-32 Name
+-------- ------ ------- ----- ---- ---- ------ ----
+       0 Stored 0 0% 04-28-16 16:27 00000000 1.in
+       0 Stored 0 0% 04-28-16 16:27 00000000 1.out
+-------- ------- --- -------
+       0 0 0% 2 files
 ```
 
-如果是在图形界面下压缩，请选中需要压缩的文件，右键直接压缩就可以。
+If it is compressed in the graphical interface, please select the file to be compressed and right-click to compress it directly.
 
-如果认为正确压缩了，但是还提示文件格式或者文件数量错误，请查看是否压缩进去了隐藏文件，Windows下可能是`$RECYCLE.BIN`等，Mac下是`.DS_Store`，Linux下可能是`1.in~`或者`.1.in.swp`文件。
+If you think it is compressed correctly, but the file format or the number of files is wrong, please check whether the hidden files are compressed. It may be `$RECYCLE.BIN` in Windows, `.DS_Store` in Mac, and `in Linux. 1.in~` or `.1.in.swp` file.
 
-同时建议尽量合并测试用例到一个文件中，减少测试用例组数，这会一定程度上提高判题性能，降低选手代码运行时间
+At the same time, it is recommended to merge test cases into one file as much as possible to reduce the number of test case groups, which will improve the performance of judging questions to a certain extent and reduce the running time of the contestants’ code.
