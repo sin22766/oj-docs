@@ -1,10 +1,10 @@
 # OnlineJudge Documents
 
-## 用户
+## User
 
- - 青岛大学 https://qduoj.com
- - 四川师范大学 https://acm.sicnu.edu.cn/
- - [欢迎提交](/onlinejudge/guide/qq_group)
+ - Qingdao University https://qduoj.com
+ - Sichuan Normal University https://acm.sicnu.edu.cn/
+ - [Submissions welcome](/onlinejudge/guide/qq_group)
 
 ## 赞助我们
 
