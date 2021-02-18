@@ -1,16 +1,16 @@
-### 什么是Special Judge
+### What is Special Judge
 
-Special Judge是指OJ将使用一个特定的程序来判断提交的程序的输出是不是正确的，而不是单纯地看提交的程序的输出是否和标准输出一模一样。
+Special Judge means that OJ will use a specific program to determine whether the output of the submitted program is correct, rather than simply seeing whether the output of the submitted program is exactly the same as the standard output.
 
-### 使用场景
+### scenes to be used
 
-一般使用Special Judge都是因为题目的答案不唯一，更具体一点说的话一般是两种情况：
+Special Judge is generally used because the answer to the question is not unique. More specifically, there are generally two situations:
 
- - 题目最终要求输出一个解决方案，而且这个解决方案可能不唯一。
+ -The problem ultimately requires output of a solution, and this solution may not be unique.
 
- - 题目最终要求输出一个浮点数，而且会告诉只要答案和标准答案相差不超过某个较小的数就可以，比如0.01。这种情况保留3位小数、4位小数等等都是可以的，而且多保留几位小数也没什么坏处。
+ -The question finally requires the output of a floating-point number, and will tell as long as the difference between the answer and the standard answer does not exceed a certain small number, such as 0.01. In this case, it is possible to keep 3 decimal places, 4 decimal places, etc., and there is no harm in keeping a few more decimal places.
 
-### Special Judge判题程序示例
+### Special Judge Judgment Procedure Example
 
 ```c
 #include <stdio.h>
@@ -53,14 +53,14 @@ int main(int argc, char *args[]){
 
 int spj(FILE *input, FILE *user_output){
     /*
-      parameter: 
-        - input，标程输入的文件指针
-        - user_output，用户输出文件的指针
-      return: 
-        - 如果用户答案正确，返回AC
-        - 如果用户答案错误返回WA
-        - 如果主动捕获到自己的错误，如内存分配失败，返回ERROR
-      请用户完成此函数.
+      parameter:
+        -input, the file pointer of the standard program input
+        -user_output, pointer to user output file
+      return:
+        -If the user's answer is correct, return to AC
+        -If the user's answer is wrong, return to WA
+        -If you actively capture your own errors, such as memory allocation failure, return ERROR
+      Ask the user to complete this function.
       demo:
       int a, b;
       while(fscanf(f, "%d %d", &a, &b) != EOF){
@@ -73,8 +73,8 @@ int spj(FILE *input, FILE *user_output){
 }
 ```
 
-### 使用方法
+### Instructions
 
-在本地测试的时候，先编译，然后`./spj your_in_file_path user_output_path`。
+When testing locally, compile first, and then `./spj your_in_file_path user_output_path`.
 
-在OJ上运行的时候，判题结果来自于`main`函数的返回值。要注意的时候OJ上判题程序也是在沙箱中运行的，时间限制为题目时间限制的3倍，内存限制为1G。
+When running on OJ, the judgment result comes from the return value of the `main` function. It should be noted that when the OJ judgement program is also running in the sandbox, the time limit is 3 times the time limit of the question, and the memory limit is 1G.
