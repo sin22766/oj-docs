@@ -1,19 +1,19 @@
-# 代码升级说明
+# Code upgrade instructions
 
-因为新版系统还处于快速升级迭代中，如果您部署或者正在使用OnlineJudge，建议watch一下本项目，这样每次发布新的release的时候就可以收到邮件提醒了。
+Because the new version of the system is still in the rapid upgrade iteration, if you deploy or are using OnlineJudge, it is recommended to watch this project so that you can receive email reminders every time a new release is released.
 
-# 升级步骤
+# Upgrade steps
 
-!> 以下方法仅适用于用官方[部署脚本](https://github.com/QingdaoU/OnlineJudgeDeploy)搭建的OJ
+!> The following methods are only applicable to OJs built with the official [deployment script](https://github.com/QingdaoU/OnlineJudgeDeploy)
 
-如果对部署仓库代码有改动，请自行备份或`git stash`,然后在 OnlineJudgeDeploy目录运行下列命令即可完成升级：
+If you make changes to the deployment warehouse code, please back it up by yourself or `git stash`, and then run the following command in the OnlineJudgeDeploy directory to complete the upgrade:
 
 ```bash
 git pull
 docker-compose pull && docker-compose up -d
 ```
 
-不过一般来说`Redis`和`Postgresql`的镜像无需更新,因此可对OJ相关镜像单独pull, 这样可以节约升级时间, 这和上述命令在大多数情况下达到的效果是一样的(除非大版本升级)：
+But generally speaking, the mirrors of `Redis` and `Postgresql` do not need to be updated, so you can pull the OJ-related mirrors separately, which can save upgrade time, which is the same as the effect achieved by the above command in most cases (unless the larger version upgrade):
 
 ```bash
 git pull
@@ -22,4 +22,4 @@ docker pull registry.cn-hangzhou.aliyuncs.com/onlinejudge/oj_backend
 docker-compose up -d
 ```
 
-如果还有任何问题，请提出issue。 
+If you still have any questions, please file an issue.
