@@ -1,17 +1,17 @@
 ## v2.0
 
-主要开发者:
+Main developer:
 
 + [virusdefender](https://virusdefender.net) 
 + [rawidn](https://rawidn.com)
 
-感谢:
+Special thank:
 
 + [heb1c](https://github.com/hebicheng)
 
 ## v1.0
 
-主要开发者：
+Main developer:
 
 - [virusdefender](https://virusdefender.net) 
 - [sxwxs](https://github.com/sxwxs) 
@@ -19,7 +19,7 @@
 - [spxcds](https://github.com/spxcds)
 - [ltwy](http://ltwy.me)
 
-感谢:
+Special thank:
 
 - [AIRobot](http://airobot.link)
 - [minyu](http://www.yuntoo.com)
@@ -37,7 +37,7 @@
 - [千千](https://www.dreamwings.cn)
 - [Cosima](http://blog.cosimahan.com)
 
-## 更早的前辈们
+## Previous Developer
 
 - 董延鑫 邢兆龙
 - 董延鑫 杨玉飞 徐可飞 王波 周鲁晓
