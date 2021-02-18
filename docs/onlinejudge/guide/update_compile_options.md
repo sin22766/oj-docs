@@ -1,4 +1,4 @@
-# 修改编译选项
+# Modify compilation options
 
 ```
 docker exec -it oj-backend sh
@@ -9,14 +9,14 @@ from options.options import *
 print(SysOptions.languages)
 ```
 
-这是系统使用的语言和编译器信息和编译选项，是 `judge/languages.py` 的拷贝，如果只修改 py 文件，是不会生效的。需要运行 
+This is the language and compiler information and compilation options used by the system. It is a copy of `judge/languages.py`. If you only modify the py file, it will not take effect. Need to run
 
 ```
 SysOptions.reset_languages()
 ```
 
-更新数据库。
+Update the database.
 
-这样以后系统更新了，py 文件可能会被覆盖，但是数据库的值还是修改过的。所以还请自行备份修改过的配置。
+After the system is updated, the py file may be overwritten, but the value of the database is still modified. So please back up the modified configuration yourself.
 
-这个配置文件的内容和格式要怎么修改请先自行探索或者询问开发者，文档以后再写。
+If you want to modify the content and format of this configuration file, please explore it yourself or ask the developer, and write the document later.
