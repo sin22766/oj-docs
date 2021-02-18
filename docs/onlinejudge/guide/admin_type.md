@@ -1,32 +1,32 @@
-# 用户权限
+# User rights
 
-目前OJ中有三类权限：
+There are currently three types of permissions in OJ:
 
-+ 超级管理员
-+ 普通管理员
-+ 普通用户
++ Super administrator
++ Ordinary administrator
++ Ordinary user
 
-## 超级管理员
+## Super Administrator
 
-超级管理员对整个系统拥有完全的掌控权，是OJ系统中的最高权限。超级管理员可以查看所有比赛和题目，可以对系统设置进行更改，以下的设置项仅超级管理员可见:
+The super administrator has complete control over the entire system and is the highest authority in the OJ system. The super administrator can view all competitions and questions, and can change the system settings. The following settings are only visible to the super administrator:
 
 ![admin_only](https://user-images.githubusercontent.com/20637881/33532293-5fe704ce-d8d3-11e7-81d5-9699e6252ded.png)
 
-超级管理员可以改变用户账户类型:
+The super administrator can change the user account type:
 ![change_user](https://user-images.githubusercontent.com/20637881/33532329-b3a2a294-d8d3-11e7-93ff-16a6a8c3af88.png)
 
-其中`Problem Permission`项设置的是普通管理员可以管理那些题目:
+Among them, the `Problem Permission` item is set for ordinary administrators to manage those problems:
 
-+ `None`: 没有权限管理题目
-+ `Own`：仅能管理自己创建的题目
-+ `All`: 能管理所有的题目
++ `None`: No permission management problem
++ `Own`: Can only manage questions created by yourself
++ `All`: can manage all questions
 
-可以根据需要自行选择，灵活分配权限
+You can choose according to your needs and assign permissions flexibly
 
-## 普通管理员
+## Ordinary Administrator
 
-普通管理员的权限如上所说，是和超级管理员的设置相关的。除此之外，对于比赛来说，比赛的所有者是超级管理员和比赛的创建者，也就是说仅这两种角色可以对比赛进行管理
+As mentioned above, the authority of ordinary administrators is related to the settings of super administrators. In addition, for the game, the owner of the game is the super administrator and the creator of the game, which means that only these two roles can manage the game
 
-## 普通用户
+## general user
 
-OJ普通用户不能登录后台管理页，是OJ权限最低的用户。
+Ordinary OJ users cannot log in to the background management page, they are the users with the lowest OJ authority.
