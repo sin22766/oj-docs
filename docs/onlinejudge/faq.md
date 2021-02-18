@@ -1,83 +1,83 @@
-## 有 docker hub 的镜像么
+## Is there a mirror of docker hub?
 
-有 https://hub.docker.com/u/qduoj/
+https://hub.docker.com/u/qduoj/
 
-## smtp 配置不成功
+## smtp configuration is unsuccessful?
 
- - OnlineJudge 不支持 ssl，请使用 tls，比如 qq 邮箱是 smtp.qq.com / tls / port 25
- - 部分邮箱 smtp 密码不是登录密码，而是单独的授权密码
+ - OnlineJudge does not support ssl, please use tls, for example, the qq mailbox is smtp.qq.com / tls / port 25
+ - Some email smtp passwords are not login passwords, but separate authorization passwords
 
-## 忘记用户密码
+## Forgot user password
 
- - 网页上找回密码
- - 后台用户管理重置
- - 超级管理员等密码也忘记，可以使用下面的命令
+ - Retrieve password on webpage
+ - User management reset
+ - If you forget the password of the super administrator, you can use the following command
 
 ```
 docker exec -it oj-backend /bin/sh
 python3 manage.py inituser --username USERNAME --password NEW_PASSWORD --action=reset
 ```
 
-## CentOS 上部署遇到问题
+## CentOS Problems encountered on deployment
 
- - 检查 docker 版本是否太老
- - 关闭 SELinux
+ - Check if the docker version is too old
+ - Turn off SELinux
   
-## 查看 Docker 容器运行状态
+## View Docker container running status
 
-运行`docker ps -a`，可以看到以下输出。
+Run `docker ps -a`, you can see the following output.
 
 ```bash
-CONTAINER ID        IMAGE                                                        COMMAND                  CREATED             STATUS                       PORTS                                         NAMES
-645070877c6c        registry.cn-hangzhou.aliyuncs.com/onlinejudge/oj_backend     "/bin/sh -c 'sh /app…"   About an hour ago   Up About an hour (healthy)             0.0.0.0:443->1443/tcp, 0.0.0.0:80->8000/tcp   oj-backend
-b6fc725b2417        registry.docker-cn.com/library/redis:4.0-alpine              "docker-entrypoint.s…"   About an hour ago   Up About an hour             6379/tcp                                      oj-redis
-3402b59b96d3        registry.docker-cn.com/library/postgres:10-alpine            "docker-entrypoint.s…"   About an hour ago   Up About an hour             5432/tcp                                      oj-postgres
-7c399af69344        registry.cn-hangzhou.aliyuncs.com/onlinejudge/judge_server   "/bin/sh -c '/bin/ba…"   About an hour ago   Up About an hour (healthy)   8080/tcp                                      judge-server
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+645070877c6c registry.cn-hangzhou.aliyuncs.com/onlinejudge/oj_backend "/bin/sh -c'sh /app…" About an hour ago Up About an hour (healthy) 0.0.0.0:443->1443/tcp, 0.0 .0.0:80->8000/tcp oj-backend
+b6fc725b2417 registry.docker-cn.com/library/redis:4.0-alpine "docker-entrypoint.s..." About an hour ago Up About an hour 6379/tcp oj-redis
+3402b59b96d3 registry.docker-cn.com/library/postgres:10-alpine "docker-entrypoint.s..." About an hour ago Up About an hour 5432/tcp oj-postgres
+7c399af69344 registry.cn-hangzhou.aliyuncs.com/onlinejudge/judge_server "/bin/sh -c'/bin/ba…" About an hour ago Up About an hour (healthy) 8080/tcp judge-server
 ```
 
-`NAMES`就是容器的名称，后面会经常用到。`STATUS`就是当前容器的运行状态，`Up xxx (healthy)`就是正常运行状态，`unhealthy`或`Exited (x) xxx`就是退出状态。
+`NAMES` is the name of the container, which will be used frequently later. `STATUS` is the current running status of the container, `Up xxx (healthy)` is the normal running status, and `unhealthy` or `Exited (x) xxx` is the exit status.
 
-注意下面使用 `{CONTAINER_NAME}` 的地方，都使用对应的名字替换，需要去除大括号。
+Note that where `{CONTAINER_NAME}` is used below, it is replaced with the corresponding name, and the braces need to be removed.
 
-## 进入正在运行的容器
+## Enter the running container
 
-然后运行`docker exec -it {CONTAINER_NAME} /bin/sh`，比如 `docker exec -it oj-backend /bin/sh`。
+Then run `docker exec -it {CONTAINER_NAME} /bin/sh`, such as `docker exec -it oj-backend /bin/sh`.
 
-## 容器异常退出
+## The container exits abnormally
 
-容器`STATUS`显示为`Exited(x) xxx`，运行`docker logs {CONTAINER_NAME}`，查看错误信息。
+The container `STATUS` is displayed as `Exited(x) xxx`, run `docker logs {CONTAINER_NAME}` to view the error information.
 
-## docker-compose 启动的时候报错 'module' object has on attribute 'connection'
+## docker-compose reports an error when starting'module' object has on attribute'connection'
 
-尝试运行 `pip install --upgrade pip && pip install -U urllib3`，然后再重试看看。
+Try to run `pip install --upgrade pip && pip install -U urllib3`, and then try again.
 
 ## Invalid token
 
-请查看`docker-compose.yml`内的`JUDGE_SERVER_TOKEN`与`TOKEN`是否一致
+Please check whether `JUDGE_SERVER_TOKEN` and `TOKEN` in `docker-compose.yml` are consistent
 
-## 80 或者 443 端口被占用导致 docker 无法启动
+## Port 80 or 443 is occupied and docker cannot be started
 
-错误信息 `bind 0.0.0.0:80 failed, port is already allocated`
+Error message `bind 0.0.0.0:80 failed, port is already allocated`
 
-修改 docker-compose 中 `ports` 相关的配置，比如 `0.0.0.0:80:8080` 可以修改为 `0.0.0.0:8020:8080`，冒号后面的端口号不会冲突请勿改动。
+Modify the configuration related to `ports` in docker-compose. For example, `0.0.0.0:80:8080` can be changed to `0.0.0.0:8020:8080`, and the port number after the colon will not conflict. Please do not change it.
 
-## 我的浏览器不显示数据或者显示异常
+## My browser does not display data or displays abnormally
 
-请使用 Chrome 或 Firefox 使用本OJ，如不能解决，请反馈问题。
+Please use Chrome or Firefox to use this OJ, if you can’t solve it, please feedback the problem.
 
-## 如何解决 oj 上运行错误但是本地成功的问题
+## How to solve the problem of running error on oj but local success
 
- - 90% 的可能性是代码的bug，本地没有触发，尤其是是本地没有完整测试数据和相同的运行环境的情况下。
- - 如果是 `Runtime Error`，可能是代码运行过程中 crash，如果提示 `signal=31`，可能是触发了禁止使用的系统调用。通过 `dmesg` 可以看到系统调用号。
- - 如果实在想看到代码运行结果，可以修改 `docker-compose.yml`，去除 `judger_debug=1` 的注释，然后 `docker-compose up -d`。重新提交之后，`docker exec -it judge-server bash` `cd /judger/run` 就可以看到很多文件夹了，可以找到自己的代码和运行结果。调试完请注释这一行并重新 `up -d`，否则每次的运行结果都会保留。
+ - 90% of the possibility is a code bug, which is not triggered locally, especially if there is no complete test data and the same operating environment locally.
+ - If it is `Runtime Error`, it may be caused by a crash during code running. If it prompts `signal=31`, it may be that a prohibited system call was triggered. You can see the    system call number through `dmesg`.
+ - If you really want to see the code running result, you can modify `docker-compose.yml`, remove the comment of `judger_debug=1`, and then `docker-compose up -d`. After resubmitting, `docker exec -it judge-server bash` `cd /judger/run` can see many folders, and you can find your own code and running results. After debugging, please comment this line and repeat `up -d`, otherwise the results of each run will be retained.
 
-## 如何调整数据库参数
+## How to adjust database parameters
 
-在以下情况下，需要考虑调整数据库参数
+In the following cases, you need to consider adjusting database parameters
 
- - 机器配置较高，比如 CPU 超过 4 核或内存超过 4G
- - 后端报错数据库连接数不够 `too many clients already`
+  - The machine configuration is relatively high, such as CPU more than 4 cores or memory more than 4G
+  - The backend reports an error that the number of database connections is not enough `too many clients already`
 
- 请参考 https://pgtune.leopard.in.ua 选择 DB Version 10，Number of Connections 为 20 倍 CPU 核数，其他的参数按照实际情况填写。
+  Please refer to https://pgtune.leopard.in.ua to select DB Version 10, Number of Connections is 20 times the number of CPU cores, and other parameters are filled in according to actual conditions.
 
- 然后将右侧的参数更新到 `OnlineJudgeDeploy/OnlineJudgeDeploy/data/postgres/postgresql.conf` 文件中，注意原先配置部分是注释掉的，需要将开头的 `#` 删除，`docker-compose restart oj-postgres` 即可。
+  Then update the parameters on the right to the `OnlineJudgeDeploy/OnlineJudgeDeploy/data/postgres/postgresql.conf` file, note that the original configuration part is commented out, you need to delete the beginning `#`, `docker-compose restart oj-postgres `OK.
