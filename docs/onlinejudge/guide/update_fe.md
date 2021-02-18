@@ -1,6 +1,6 @@
 # Modify the front end
 
-Refer to https://github.com/QingdaoU/OnlineJudgefe for development and construction
+Clone https://github.com/QingdaoU/OnlineJudgefe for development and construction
 
 Then `npm run build` can get a dist folder, the file structure is as follows
 
