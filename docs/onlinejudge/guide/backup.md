@@ -1,27 +1,26 @@
-# 数据备份和恢复
+# Data backup and recovery
 
-## 如何备份
+## How to backup
 
-为了保证数据安全，请定期备份。
+To ensure data security, please back up regularly.
 
-OnlineJudgeDeploy 目录中的 `data` 文件夹是系统的所有的数据，包括日志，数据库，测试用例，上传的文件等，其中需要备份的数据为 `backend/public`，`backend/test_case` 两个目录。
+The `data` folder in the OnlineJudgeDeploy directory contains all the data of the system, including logs, databases, test cases, uploaded files, etc. The data that needs to be backed up are `backend/public` and `backend/test_case` two directories.
 
-**对于数据库，请不要使用复制数据库数据文件的方法**。在最新的 OnlineJudgeDeploy 中，`backup` 目录提供了数据库导出 sql 文件备份脚本，请每次备份后检查生成的 sql 文件的大小和内容，确保备份成功。
+**For databases, please do not use the method of copying database data files**. In the latest OnlineJudgeDeploy, the `backup` directory provides a database export sql file backup script. Please check the size and content of the generated sql file after each backup to ensure that the backup is successful.
 
-请不要把备份数据和 OnlineJudge 系统放在同一台机器上，这样数据丢失的风险仍然较高。
+Please do not put the backup data and OnlineJudge system on the same machine, so the risk of data loss is still high.
 
-## 恢复备份
+## Restore backup
 
-如果只是想不同机器之间迁移部署，`docker stop $(docker ps -aq)` 然后复制 `OnlineJudgeDeploy` 文件夹到新机器后重新 `docker-compose up -d` 即可。
+If you just want to migrate and deploy between different machines, `docker stop $(docker ps -aq)` then copy the `OnlineJudgeDeploy` folder to the new machine and re-`docker-compose up -d`.
 
-如果要恢复数据，首先要保证已经新部署了一套 OnlineJudge，然后需要恢复数据和测试用例文件。
+If you want to restore data, you must first ensure that a set of OnlineJudge has been newly deployed, and then you need to restore the data and test case files.
 
-测试用例存储在 `data/backend/test_case` 文件夹中，覆盖即可。
+The test cases are stored in the `data/backend/test_case` folder and can be overwritten.
 
-在新的机器上执行下面的操作可以恢复数据库
+Perform the following operations on the new machine to restore the database
 
- - `docker cp db_backup_xxxxxxx.sql oj-postgres:/root`
- - `docker exec -it oj-postgres bash`
- - `psql -U postgres` 然后运行 `drop database onlinejudge;` (**请一定注意！！！看清楚自己再哪台机器上**）
- - `\q` 退出，然后 `psql -f /root/db_backup_xxxxxxx.sql -U postgres`
-
+ -`docker cp db_backup_xxxxxxx.sql oj-postgres:/root`
+ -`docker exec -it oj-postgres bash`
+ -`psql -U postgres` and run `drop database onlinejudge;` (**Please pay attention!!! See which machine you are on**)
+ -`\q` exit, then `psql -f /root/db_backup_xxxxxxx.sql -U postgres`
