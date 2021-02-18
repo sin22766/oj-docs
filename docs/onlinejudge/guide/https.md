@@ -1,18 +1,18 @@
-# HTTPS 相关问题
+# HTTPS related issues
 
-OnlineJudge 强烈推荐使用 HTTPS 协议
+OnlineJudge strongly recommends using HTTPS protocol
 
-  - 数据传输加密，提高安全性，防劫持
-  - 可以使用 HTTP2，加快访问速度（默认配置）
+  -Data transmission encryption to improve security and prevent hijacking
+  -HTTP2 can be used to speed up access (default configuration)
 
-OnlineJudge 的部署脚本默认情况下会生成一个自签名证书，浏览器会提示不信任，可以自己去申请对应域名的可信证书，OnlineJudge 也提供了下面两个特性方便 HTTPS 证书的申请和使用。
+The deployment script of OnlineJudge will generate a self-signed certificate by default, and the browser will prompt you do not trust. You can apply for a trusted certificate corresponding to the domain name yourself. OnlineJudge also provides the following two features to facilitate the application and use of HTTPS certificates.
 
-## 申请 HTTPS 证书
+## Apply for HTTPS certificate
 
-`/.well-known` 的 url 前缀，会自动使用 `data/backend/ssl/.well-known` 目录下面的文件，默认情况下 `data/backend/ssl/` 已经存在，所以可以手动的创建 `.well-known` 及其子文件夹，比如需要 url 为 `/.well-known/pki-validation/fileauth.txt` 的验证文件，就可以创建 `data/backend/ssl/.well-known/pki-validation/fileauth.txt` 文件，内容为指定的内容。
+The url prefix of `/.well-known` will automatically use the files in the `data/backend/ssl/.well-known` directory. By default, `data/backend/ssl/` already exists, so you can create it manually `.well-known` and its subfolders, for example, if you need a verification file whose url is `/.well-known/pki-validation/fileauth.txt`, you can create `data/backend/ssl/.well-known/ pki-validation/fileauth.txt` file, the content is the specified content.
 
-然后替换 `data/backend/ssl/` 下面的证书和私钥文件，之后 `docker exec -it oj-backend sh -c "cd /app/deploy; supervisorctl restart nginx"`。
+Then replace the certificate and private key files under `data/backend/ssl/`, and then `docker exec -it oj-backend sh -c "cd /app/deploy; supervisorctl restart nginx"`.
 
 ## FORCE_HTTPS
 
-如果 HTTPS 配置成功，为了增强安全性，推荐重定向 HTTP 流量到 HTTPS 流量，这时候可以取消注释 `docker-compose.yml` 文件中的 `FORCE_HTTPS=1` 这一行，然后 `docker-compose up -d` 重启即可。
+If the HTTPS configuration is successful, in order to enhance security, it is recommended to redirect HTTP traffic to HTTPS traffic. At this time, you can uncomment the line `FORCE_HTTPS=1` in the `docker-compose.yml` file, and then `docker-compose up -d `Just restart.
